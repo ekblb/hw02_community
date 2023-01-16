@@ -4,6 +4,6 @@
 {% endblock %}
 {% block content %}
   <h1>{{ group.title }}</h1>
-  <p>{{ group.description }}</p>
+  <p>{{ group.description|linebreaks }}</p>
   {% include 'includes/post.html' %}
 {% endblock %}
