@@ -1,12 +1,12 @@
-from django.db import models
 from django.contrib.auth import get_user_model
+from django.db import models
 
 User = get_user_model()
 
 
 class Group(models.Model):
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(unique=True)
     description = models.TextField()
 
     def __str__(self):
@@ -24,5 +24,10 @@ class Post(models.Model):
         Group,
         blank=True,
         null=True,
-        related_name='group',
-        on_delete=models.CASCADE)
+        related_name='posts',
+        on_delete=models.SET_NULL,)
+
+    class Meta:
+        ordering = ['-pub_date']
+
+    
