@@ -2,5 +2,7 @@
 {% load static %}
 {% block content %}
   <h1>Последние обновления на сайте</h1>
-  {% include 'includes/post.html' %}
+  {% for post in posts %}
+    {% include 'includes/post.html' %}
+  {% endfor %} 
 {% endblock %}
