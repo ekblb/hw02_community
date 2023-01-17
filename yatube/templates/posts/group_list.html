@@ -4,8 +4,9 @@
 {% endblock %}
 {% block content %}
   <h1>{{ group.title }}</h1>
-  <p>{{ group.description|linebreaks }}</p>
+  <p>{{ group.description|linebreaksbr }}</p>
   {% for post in posts %}
     {% include 'includes/post.html' %}
+    {% if not forloop.last %}<hr>{% endif %}
   {% endfor %} 
 {% endblock %}

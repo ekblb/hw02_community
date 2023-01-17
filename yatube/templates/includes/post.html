@@ -7,11 +7,9 @@
         Дата публикации: {{ post.pub_date|date:"d E Y" }}
       </li>
     </ul>
-    <p>{{ post.text|linebreaks }} </p>
-    {% if not group %}  
-      {% if post.group %}   
-        <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
-      {% endif %}
+    <p>{{ post.text|linebreaksbr }} </p>
+    {% if not group and post.group %}  
+      <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
     {% endif %}
-    {% if not forloop.last %}<hr>{% endif %}
+   
 </article>
