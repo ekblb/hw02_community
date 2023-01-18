@@ -7,5 +7,6 @@
   <p>{{ group.description|linebreaksbr }}</p>
   {% for post in posts %}
     {% include 'includes/post.html' %}
+    {% if not forloop.last %}<hr>{% endif %} 
   {% endfor %} 
 {% endblock %}
